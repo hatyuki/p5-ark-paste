@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+ <title>Ark::Paste</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <meta http-equiv="Content-Style-Type" content="text/css" />
+ <meta http-equiv="Content-Script-Type" content="text/javascript" />
+ <link rel="stylesheet" type="text/css" href="<: $c.uri_for('static', 'css', 'base.css') :>" />
+ : block stylesheet -> { }
+</head>
+<body>
+<div id="container">
+ <div id="header">
+  <h1><a href="<: $c.uri_for( ) :>">Ark::Paste</a></h1>
+ </div>
+
+ <div id="navi">
+  <ol>
+   : block navi -> { }
+  </ol>
+ </div>
+
+ <div id="main">
+  : block body -> { }
+ </div>
+
+ <div id="footer">
+  <ul>
+   <li>Ark::Paste</li>
+   <li>[<a href="http://github.com/typester/ark-perl">Ark</a>]</li>
+   <li>[<a href="http://xslate.org/">Text::Xslate</a>]</li>
+   <li>[<a href="http://search.cpan.org/dist/DBIx-Skinny/">DBIx::Skinny</a>]</li>
+  </ul>
+ </div>
+</div>
+
+: block javascript -> { }
+</body>
+</html>

@@ -1,0 +1,32 @@
+: cascade common::base
+
+: around stylesheet -> {
+ <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'list.css') :>" />
+: }
+
+: around javascript -> {
+: }
+
+: around navi -> {
+ <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
+ <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
+ <li>&gt;&nbsp;<: $date.ymd('/') :></li>
+: }
+
+: around body -> {
+ <div id="list">
+  <h2>
+   いちらん
+   <span id="comment">たいとる / げんご (日付)</span>
+  </h2> 
+  <ul id="entries">
+: for $list -> $entry {
+   <li>
+    <a href="<: $c.uri_for('entry', $entry.uuid) :>">
+     <: $entry.title :> / <: $entry.language :> (<: $entry.created_at :>)
+    </a>
+   </li>
+: }
+  </ul>
+ </div>
+: }

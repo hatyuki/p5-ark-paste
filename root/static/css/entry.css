@@ -1,0 +1,9 @@
+#entry {
+    margin: 2em auto 0 2em;
+    width: 80%;
+}
+
+#entry-title {
+    font-weight: bold;
+    border-bottom: 2px solid #87AEFF;
+}

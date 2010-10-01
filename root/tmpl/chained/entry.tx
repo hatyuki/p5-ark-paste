@@ -1,0 +1,32 @@
+: cascade common::base
+
+: around stylesheet -> {
+ <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'entry.css') :>" />
+ <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'syntaxhighlighter', 'shCore.css') :>" />
+ <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'syntaxhighlighter', 'shThemeDefault.css') :>" />
+: }
+
+: around javascript -> {
+: my $script = "shBrush" ~ camelize($entry.language) ~ ".js"
+ <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', 'shCore.js') :>"></script>
+ <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', $script) :>"></script>
+ <script type="text/javascript">SyntaxHighlighter.all( );</script>
+: }
+
+: around navi -> {
+ <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
+ <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
+ <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist', $entry.created_at.ymd('')) :>"><: $entry.created_at.ymd('/') :></a></li>
+ <li>&gt;&nbsp;<: $entry.title :></li>
+: }
+
+: around body -> {
+ <div id="entry">
+  <p id="entry-title">[<: $entry.language :>] <: $entry.title :></p>
+  <div id="entry-content">
+   <pre class="brush: <: $entry.language :>">
+<: $entry.content :>
+   </pre>
+  </div>
+ </div>
+: }

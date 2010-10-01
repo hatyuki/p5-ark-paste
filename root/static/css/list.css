@@ -1,0 +1,18 @@
+#list {
+    margin: 2em auto 0 2em;
+    width: 80%;
+}
+
+h2 {
+    font-size: 110%;
+}
+
+#comment {
+    font-size: 75%;
+    font-weight: normal;
+    color: #87AEFF;
+}
+
+ul {
+    margin: 0 0 0 2em;
+}
