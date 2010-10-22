@@ -6,10 +6,11 @@ param title => (
     type  => 'TextField',
     constraints => [
         'NOT_NULL',
-        ['LENGTH', 1, 20],
+        ['LENGTH', 1, 30],
     ],
     messages => {
         not_null => 'たいとる は 必須っぽい',
+        length   => 'たいとる は30文字以内でたのむ',
     },
 
 );
