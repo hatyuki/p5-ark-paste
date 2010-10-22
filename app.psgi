@@ -6,13 +6,17 @@ my $app = Ark::Paste->new;
 $app->setup;
 
 builder {
-    enable 'Plack::Middleware::ConditionalGET';
-    enable 'Plack::Middleware::ETag',
-        file_etag => [qw/ inode mtime size /];
+    enable 'ReverseProxy';
+    enable AccessLog => format => 'combined';
 
-    enable 'Plack::Middleware::Static',
-        path => qr{^/static/},
-        root => $app->path_to('root')->stringify;
-
-    $app->handler;
+    mount '/ark-paste' => builder => { $app->handler };
 };
+
+
+#builder {
+#    enable 'Plack::Middleware::Static',
+#        path => qr{^/static/},
+#        root => $app->path_to('root')->stringify;
+#
+#    $app->handler;
+#};
