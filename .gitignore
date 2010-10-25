@@ -14,3 +14,4 @@ extlib
 tmp
 run
 supervise
+config_local.pl
