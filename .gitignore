@@ -12,4 +12,4 @@ MANIFEST.bak
 ark-paste.db
 extlib
 tmp
-*.sh
+run
