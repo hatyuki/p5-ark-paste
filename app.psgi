@@ -8,15 +8,5 @@ $app->setup;
 builder {
     enable 'ReverseProxy';
     enable AccessLog => format => 'combined';
-
-    mount '/ark-paste' => builder => { $app->handler };
+    mount '/ark-paste' => builder { $app->handler };
 };
-
-
-#builder {
-#    enable 'Plack::Middleware::Static',
-#        path => qr{^/static/},
-#        root => $app->path_to('root')->stringify;
-#
-#    $app->handler;
-#};
