@@ -16,3 +16,7 @@ h2 {
 ul {
     margin: 0 0 0 2em;
 }
+
+.date {
+    font-size: 70%;
+}

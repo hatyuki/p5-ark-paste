@@ -17,13 +17,13 @@
  <div id="list">
   <h2>
    いちらん
-   <span id="comment">たいとる / げんご (日付)</span>
+   <span id="comment">たいとる(日付)</span>
   </h2> 
   <ul id="entries">
 : for $list -> $entry {
    <li>
     <a href="<: $c.uri_for('entry', $entry.uuid) :>">
-     <: $entry.title :> / <: $entry.language :> (<: $entry.created_at :>)
+     [<: $entry.language :>] <: $entry.title :> <span class="date">(<: $entry.updated_at :>)</span>
     </a>
    </li>
 : }
