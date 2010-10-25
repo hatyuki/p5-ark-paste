@@ -1,4 +1,4 @@
-: around body -> {
+: macro action_form -> $action {
 :   if $c.req.method == 'POST' && form( ).has_error( ) {
  <div id="error">
   <ul>
@@ -14,7 +14,7 @@
 :   }
 
  <div id="form">
-  <form method="post" action="<: $c.uri_for( ) :>">
+  <form method="post" action="<: $c.uri_for($action) :>">
   <table>
    <tbody>
     <tr id="form-title">
@@ -36,5 +36,4 @@
   </table>
   </form>
  </div>
-
 : }

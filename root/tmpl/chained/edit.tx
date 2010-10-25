@@ -11,3 +11,5 @@
  <li>&gt;&nbsp;<a href="<: $c.uri_for('entry', $entry.uuid) :>"><: $entry.title :></a></li>
  <li>&gt;&nbsp;へんしゅう</li>
 : }
+
+: around body -> { action_form('edit/' ~ $entry.uuid) }

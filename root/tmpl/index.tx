@@ -8,3 +8,5 @@
  <li>とっぷ</li>
  <li>|&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
 : }
+
+: around body -> { action_form('') }

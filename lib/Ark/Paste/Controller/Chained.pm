@@ -55,7 +55,7 @@ sub edit :Chained('/') :PathPart :Args(1) :Form('Ark::Paste::Form::Entry')
     $c->detach('/default') unless $entry;
 
     if ($c->req->method eq 'POST' && $self->form->submitted_and_valid) {
-        my $entry = models('API::Entry')->update($self->form->params);
+        my $entry = models('API::Entry')->update($entry, $self->form->params);
 
         $c->redirect_and_detach( $c->uri_for('entry', $uuid) );
     }
