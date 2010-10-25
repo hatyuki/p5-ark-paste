@@ -22,7 +22,7 @@
 
 : around body -> {
  <div id="entry">
-  <p id="entry-title">[<: $entry.language :>] <: $entry.title :></p>
+  <p id="entry-title"><a href="<: $c.uri_for('edit', $entry.uuid) :>">[<: $entry.language :>] <: $entry.title :></a></p>
   <div id="entry-content">
    <pre class="brush: <: $entry.language :>">
 <: $entry.content :>

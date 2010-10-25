@@ -1,0 +1,13 @@
+: cascade common::base with common::form
+
+: around stylesheet -> {
+ <link rel="stylesheet" type="text/css" href="<: $c.uri_for('static', 'css', 'index.css') :>" />
+: }
+
+: around navi -> {
+ <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
+ <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
+ <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist', $entry.created_at.ymd('')) :>"><: $entry.created_at.ymd('/') :></a></li>
+ <li>&gt;&nbsp;<a href="<: $c.uri_for('entry', $entry.uuid) :>"><: $entry.title :></a></li>
+ <li>&gt;&nbsp;へんしゅう</li>
+: }

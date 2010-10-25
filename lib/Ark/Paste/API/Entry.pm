@@ -58,4 +58,13 @@ sub create
 }
 
 
+sub update
+{
+    my ($self, $row, $args) = @_;
+    $row->update($args);
+
+    return $row;
+}
+
+
 __PACKAGE__->meta->make_immutable;

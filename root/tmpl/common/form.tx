@@ -1,0 +1,40 @@
+: around body -> {
+:   if $c.req.method == 'POST' && form( ).has_error( ) {
+ <div id="error">
+  <ul>
+:     for ['title', 'language', 'content'] -> $label {
+:       if form( ).is_error($label) {
+:         for form( ).error_messages_plain($label) -> $error {
+   <li class="error"><: $error :></li>
+:         }
+:       }
+:     }
+  </ul>
+ </div>
+:   }
+
+ <div id="form">
+  <form method="post" action="<: $c.uri_for( ) :>">
+  <table>
+   <tbody>
+    <tr id="form-title">
+     <th>たいとる</th>
+     <td><: form_input('title') :></td>
+    </tr>
+    <tr id="form-language">
+     <th>げんご</td>
+     <td><: form_input('language') :></td>
+    </tr>
+    <tr id="form-content">
+     <th>こーど</th>
+     <td><: form_input('content') :></td>
+    </tr>
+    <tr>
+     <td colspan="2"><input id="form-submit" type="submit" value="とうろく" /></td>
+    </tr>
+   </tbody>
+  </table>
+  </form>
+ </div>
+
+: }
