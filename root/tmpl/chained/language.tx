@@ -9,16 +9,22 @@
 
 : around navi -> {
  <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
- <li>&gt;&nbsp;ぜんぶみる</li>
+ <li>&gt;&nbsp;<a href="<: $c.uri_for('language') :>">げんごべついちらん</a></li>
+ <li>&gt;&nbsp;<: $language :></li>
 : }
 
 : around body -> {
  <div id="list">
-  <h2>いちらん (日付順)</h2>
+  <h2>
+   いちらん
+   <span id="comment">たいとる(日付)</span>
+  </h2> 
   <ul id="entries">
 : for $list -> $entry {
    <li>
-    <a href="<: $c.uri_for('entrylist', $entry.ymd('')) :>"><: $entry.ymd('/') :></a>
+    <a href="<: $c.uri_for('entry', $entry.uuid) :>">
+     [<: $entry.language :>] <: $entry.title :> <span class="date">(<: $entry.updated_at :>)</span>
+    </a>
    </li>
 : }
   </ul>

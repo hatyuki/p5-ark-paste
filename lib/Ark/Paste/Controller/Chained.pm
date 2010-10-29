@@ -21,7 +21,7 @@ sub entrylist :Chained('/') :PathPart('entrylist') :Args(1)
     $c->detach('/default') unless $args =~ /^\d{8}$/;
 
     my $date = models('API::DateUtil')->from_date($args, '');
-    my $list = models('API::Entry')->get_entries($date);
+    my $list = models('API::Entry')->get_entries_by_date($date);
 
     $c->stash->{list} = [ map { $_->get_columns } $list->all ];
     $c->stash->{date} = $date;
@@ -71,6 +71,26 @@ sub edit :Chained('/') :PathPart :Args(1) :Form('Ark::Paste::Form::Entry')
         title      => $entry->title,
         created_at => $entry->created_at,
     };
+}
+
+
+# /language/{$language}
+sub languagelist :Chained('/') :PathPart('language') :Args(0)
+{
+    my ($self, $c) = @_;
+    my $list = models('API::Entry')->get_language_list;
+
+    $c->stash->{list} = [ map { $_->get_columns } $list->all ];
+}
+
+
+sub language :Chained('/') :PathPart :Args(1)
+{
+    my ($self, $c, $language) = @_;
+    my $list = models('API::Entry')->get_entries_by_language($language);
+
+    $c->stash->{list}     = [ map { $_->get_columns } $list->all ];
+    $c->stash->{language} = $language;
 }
 
 

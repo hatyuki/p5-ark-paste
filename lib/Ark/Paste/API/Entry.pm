@@ -30,11 +30,23 @@ sub get_date_list
 }
 
 
-sub get_entries
+sub get_entries_by_date
 {
     my ($self, $date) = @_;
-
     my $cond = { 'substr(created_at, 1, 10)' => $date->ymd('/') };
+    my $attr = {
+        select   => [qw/ title language uuid created_at updated_at /],
+        order_by => [ { created_at => 'desc' } ],
+    };
+
+    return $self->skinny->search(entries => $cond, $attr);
+}
+
+
+sub get_entries_by_language
+{
+    my ($self, $language) = @_;
+    my $cond = { language => $language };
     my $attr = {
         select   => [qw/ title language uuid created_at updated_at /],
         order_by => [ { created_at => 'desc' } ],
@@ -64,6 +76,16 @@ sub update
     $row->update($args);
 
     return $row;
+}
+
+
+sub get_language_list
+{
+    my ($self, ) = @_;
+    
+    return $self->skinny->search_by_sql( q{
+        SELECT language, count(language) AS count FROM entries GROUP BY language
+    } );
 }
 
 
