@@ -16,6 +16,7 @@ config 'View::Tiffany' => {
     options   => {
         path      => $home->subdir('root', 'tmpl'),
         cache_dir => $home->subdir('tmp', 'xslate_cache'),
+        cache     => 2,
         function  => {
             form => sub {
                 __PACKAGE__->context->stash->{form};

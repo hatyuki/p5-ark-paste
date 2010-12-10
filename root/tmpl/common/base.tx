@@ -27,7 +27,7 @@
  <div id="footer">
   <ul>
    <li>Ark::Paste</li>
-   <li>[<a href="http://github.com/typester/ark-perl">Ark</a>]</li>
+   <li>[<a href="http://github.com/typester/ark-perl/">Ark</a>]</li>
    <li>[<a href="http://xslate.org/">Text::Xslate</a>]</li>
    <li>[<a href="http://search.cpan.org/dist/DBIx-Skinny/">DBIx::Skinny</a>]</li>
   </ul>
