@@ -6,4 +6,4 @@ cd $HOME_DIR/p5-ark-paste || exit 1
 exec 2>&1
 exec env - PATH=$HOME_DIR/local/perlbrew/perls/current/bin \
     /usr/bin/setuidgid www-data \
-    starman --workers 1 --socket tmp/socket/ark-paste.sock --disable-keepalive -Ilib -Mlocal::lib=extlib app.psgi
+    starman --workers 1 --port 12121 --disable-keepalive app.psgi
