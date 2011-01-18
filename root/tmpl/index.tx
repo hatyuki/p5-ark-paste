@@ -5,9 +5,11 @@
 : }
 
 : around navi -> {
- <li>とっぷ</li>
- <li>|&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
- <li>|&nbsp;<a href="<: $c.uri_for('language') :>">げんごべついちらん</a></li>
+ <ol>
+  <li>とっぷ</li>
+  <li>|&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
+  <li>|&nbsp;<a href="<: $c.uri_for('language') :>">げんごべついちらん</a></li>
+ </ol>
 : }
 
 : around body -> { action_form('') }

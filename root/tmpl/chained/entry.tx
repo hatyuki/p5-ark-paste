@@ -21,10 +21,13 @@
 : }
 
 : around navi -> {
- <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
- <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
- <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist', $entry.created_at.ymd('')) :>"><: $entry.created_at.ymd('/') :></a></li>
- <li>&gt;&nbsp;<: $entry.title :></li>
+ <ol>
+  <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
+  <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
+  <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist', $entry.created_at.ymd('')) :>"><: $entry.created_at.ymd('/') :></a></li>
+  <li>&gt;&nbsp;<: $entry.title :></li>
+ </ol>
+ <ul id="delete"><li><a href="<: $c.uri_for('delete', $entry.uuid) :>">さくじょ</a></li></ul>
 : }
 
 : around body -> {

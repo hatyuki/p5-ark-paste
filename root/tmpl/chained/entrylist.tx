@@ -8,9 +8,11 @@
 : }
 
 : around navi -> {
- <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
- <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
- <li>&gt;&nbsp;<: $date.ymd('/') :></li>
+ <ol>
+  <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
+  <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
+  <li>&gt;&nbsp;<: $date.ymd('/') :></li>
+ </ol>
 : }
 
 : around body -> {
