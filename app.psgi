@@ -10,5 +10,6 @@ $app->setup;
 builder {
     enable 'ReverseProxy';
     enable AccessLog => format => 'combined';
+    enable 'Deflater';
     mount '/ark-paste' => builder { $app->handler };
 };
