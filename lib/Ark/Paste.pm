@@ -10,7 +10,6 @@ use_model 'Ark::Paste::Models';
 my $home = Ark::Paste::Models->get('home');
 my $conf = Ark::Paste::Models->get('conf');
 
-
 config 'View::Tiffany' => {
     view      => 'Text::Xslate',
     extension => '.tx',
@@ -33,7 +32,7 @@ config 'View::Tiffany' => {
             },
         },
         module => ['String::CamelCase' => [qw/ camelize /]],
-        %{$conf->{Xslate}},
+        %{ $conf->{Xslate} || +{ } },
     },
 };
 
