@@ -9,17 +9,20 @@ sub parse
     my $parser = Text::Xatena->new;
     my $inline = Text::Xatena::Inline->new;
     my $format = $parser->format($content, inline => $inline);
-    my $retval = qq{<div class="$language">\n};
+    my $retval = qq{<div class="$language">\n$format\n};
 
-    $retval .= "$format\n";
-
-    $retval .= qq{<div class="notes">\n};
-    for my $footnote (@{ $inline->footnotes }) {
-        $retval .= sprintf qq{<p class="footnote" id="#fn%d">*%d: %s</p>\n},
-            $footnote->{number}, $footnote->{number}, $footnote->{note};
+    if (@{ $inline->footnotes }) {
+        $retval .= qq{<div class="notes">\n};
+        for my $footnote (@{ $inline->footnotes }) {
+            $retval .= sprintf(
+                qq{<p class="footnote" id="#fn%d">*%d: %s</p>\n},
+                $footnote->{number}, $footnote->{number}, $footnote->{note}
+            );
+        }
+        $retval .= qq{</div>\n};
     }
-    $retval .= qq{</div>\n};  ## footnote
-    $retval .= qq{</div>\n};  ## xatena
+
+    $retval .= qq{</div>\n};
 
     return $retval;
 }
