@@ -37,6 +37,7 @@ param language => (
         sql        => 'SQL',
         vb         => 'Visual Basic',
         xml        => 'XML or HTML',
+        xatena     => 'Text::Xatena',
     ],
     constraints => [qw/ NOT_NULL /],
 );

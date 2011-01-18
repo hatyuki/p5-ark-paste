@@ -23,6 +23,12 @@ config 'View::Tiffany' => {
             form_input => html_builder {
                 __PACKAGE__->context->stash->{form}->input(@_);
             },
+            parse_content => html_builder {
+                my $args   = shift;
+                my $parser = Ark::Paste::Models->get('Entry::Parser');
+
+                return $parser->parse($args->{language}, $args->{content});
+            },
         },
         module => ['String::CamelCase' => [qw/ camelize /]],
     },

@@ -11,6 +11,13 @@ register Skinny => sub {
     Ark::Paste::API::Skinny->new($config);
 };
 
+register 'Entry::Parser' => sub {
+    my $self = shift;
+
+    $self->ensure_class_loaded('Ark::Paste::API::Entry::Parser');
+    'Ark::Paste::API::Entry::Parser';
+};
+
 register_namespaces API => 'Ark::Paste::API';
 
 

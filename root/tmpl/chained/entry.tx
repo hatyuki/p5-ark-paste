@@ -2,15 +2,22 @@
 
 : around stylesheet -> {
  <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'entry.css') :>" />
+:  if $entry.language == 'xatena' {
+ <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'xatena.css') :>" />
+:  }
+:  else {
  <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'syntaxhighlighter', 'shCore.css') :>" />
  <link type="text/css" rel="stylesheet" href="<: $c.uri_for('static', 'css', 'syntaxhighlighter', 'shThemeDefault.css') :>" />
+:  }
 : }
 
 : around javascript -> {
-: my $script = "shBrush" ~ camelize($entry.language) ~ ".js"
+:  if $entry.language != 'xatena' {
+:  my $script = "shBrush" ~ camelize($entry.language) ~ ".js"
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', 'shCore.js') :>"></script>
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', $script) :>"></script>
  <script type="text/javascript">SyntaxHighlighter.all( );</script>
+:  }
 : }
 
 : around navi -> {
@@ -24,9 +31,7 @@
  <div id="entry">
   <p id="entry-title"><a href="<: $c.uri_for('edit', $entry.uuid) :>">[<: $entry.language :>] <: $entry.title :></a></p>
   <div id="entry-content">
-   <pre class="brush: <: $entry.language :>">
-<: $entry.content :>
-   </pre>
+: parse_content($entry)
   </div>
  </div>
 : }
