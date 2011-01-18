@@ -1,5 +1,10 @@
 Revision History
 
+0.005
+   2011-01-18
+        - ADD: とりあえず記事を削除できるようにした
+        - ADD: Deflater をむだに導入してみる
+
 0.004
    2011-01-18
         - FIX: Text::Xatena 記法で Footnote がない場合、表示がだらしない
