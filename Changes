@@ -1,4 +1,3 @@
-My Nopaste Application "Ark::Paste" Release Notes
 Revision History
 
 0.002
@@ -6,3 +5,7 @@ Revision History
         - MOD: ファイルの更新を確認せず、必ず Cache を使う
         - MOD: Unix Socket ではなく Port を使って起動する
         - MOD: フッタの気になるリンクを修正
+
+0.001
+   2010-10-29
+        - ADD: とりあえず完成っぽいよ
