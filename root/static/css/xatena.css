@@ -6,15 +6,18 @@
     font-size: 110%;
     margin: 1em 0 0 0;
     padding-left: 0.5em;
-    border-left: 9px solid #5279E7;
+    border-bottom: 1px solid #5279E7;
+    border-left:   9px solid #5279E7;
 }
 .xatena h4{
     border-bottom: 1px solid #B5CBF7;
-    padding: 3px;
+    border-left:   9px solid #B5CBF7;
+    padding-left: 0.5em;
     margin: 1em 0 1em 0;
 }
 .xatena h5{
     margin: 0.5em 0 0.5em 0;
+    border-bottom: 2px solid #5279E7;
     font-size: 100%;
 }
 .xatena .section{
@@ -87,10 +90,17 @@
     background: #FFF06E;
     padding: 0 0.3em;
 }
-.xatena p.footnote{
-    font-size: 90%;
-    margin: 1em 0;
+
+.xatena div.notes
+{
+    margin-top: 2em;
+    margin-left: 1em;
+    padding: 0;
+    border: 1px solid #B5CBF7;
 }
-.xatena .sectionfooter{
-    text-align: right;
-} 
+
+.xatena p.footnote {
+    margin: 0.2em 1em;
+    font-size: 80%;
+    color: #555555;
+}
