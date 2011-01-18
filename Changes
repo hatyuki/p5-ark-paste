@@ -1,5 +1,9 @@
 Revision History
 
+0.004
+   2011-01-18
+        - FIX: Text::Xatena 記法で Footnote がない場合、表示がだらしない
+
 0.003
    2011-01-18
         - ADD: Text::Xatena 記法にとりあえず対応してみた

@@ -2,7 +2,7 @@ package Ark::Paste;
 use Ark;
 use Text::Xslate qw/ html_builder /;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 
 
 use_model 'Ark::Paste::Models';
