@@ -84,7 +84,7 @@ sub delete :Chained('/') :PathPart :Args(1)
         $entry->delete;
     }
 
-    $c->redirect_and_detach('/');
+    $c->redirect_and_detach( $c->uri_for('/') );
 }
 
 
