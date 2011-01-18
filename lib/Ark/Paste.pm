@@ -2,7 +2,7 @@ package Ark::Paste;
 use Ark;
 use Text::Xslate qw/ html_builder /;
 
-our $VERSION = '0.01';
+our $VERSION = '0.002';
 
 
 use_model 'Ark::Paste::Models';
@@ -16,6 +16,7 @@ config 'View::Tiffany' => {
     options   => {
         path      => $home->subdir('root', 'tmpl'),
         cache_dir => $home->subdir('tmp', 'xslate_cache'),
+        cache     => 2,
         function  => {
             form => sub {
                 __PACKAGE__->context->stash->{form};

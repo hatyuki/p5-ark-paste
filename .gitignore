@@ -15,3 +15,4 @@ tmp
 run
 supervise
 config_local.pl
+daemontools/root
