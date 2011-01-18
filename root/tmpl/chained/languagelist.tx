@@ -8,8 +8,10 @@
 : }
 
 : around navi -> {
- <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
- <li>&gt;&nbsp;げんごべついちらん</li>
+ <ol>
+  <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
+  <li>&gt;&nbsp;げんごべついちらん</li>
+ </ol>
 : }
 
 : around body -> {

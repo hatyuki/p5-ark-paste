@@ -74,6 +74,20 @@ sub edit :Chained('/') :PathPart :Args(1) :Form('Ark::Paste::Form::Entry')
 }
 
 
+# /delete/{$uuid}
+sub delete :Chained('/') :PathPart :Args(1)
+{
+    my ($self, $c, $uuid) = @_;
+    my $entry = models('API::Entry')->find($uuid);
+
+    if ($entry) {
+        $entry->delete;
+    }
+
+    $c->redirect_and_detach( $c->uri_for('/') );
+}
+
+
 # /language/{$language}
 sub languagelist :Chained('/') :PathPart('language') :Args(0)
 {

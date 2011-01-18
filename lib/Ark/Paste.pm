@@ -2,13 +2,13 @@ package Ark::Paste;
 use Ark;
 use Text::Xslate qw/ html_builder /;
 
-our $VERSION = '0.004';
+our $VERSION = '0.005';
 
 
 use_model 'Ark::Paste::Models';
 
 my $home = Ark::Paste::Models->get('home');
-
+my $conf = Ark::Paste::Models->get('conf');
 
 config 'View::Tiffany' => {
     view      => 'Text::Xslate',
@@ -32,6 +32,7 @@ config 'View::Tiffany' => {
             },
         },
         module => ['String::CamelCase' => [qw/ camelize /]],
+        %{ $conf->{Xslate} || +{ } },
     },
 };
 

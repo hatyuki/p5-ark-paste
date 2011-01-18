@@ -1,3 +1,18 @@
+#navi > ol {
+    float: left;
+}
+
+#navi > ul {
+    padding: 0.1em 0.5em;
+    text-align: right;
+    list-style:: none;
+    font-size: 85%;
+}
+
+#navi > ul > li {
+    display: inline;
+}
+
 #entry {
     margin: 2em auto 0 auto;
     width: 90%;

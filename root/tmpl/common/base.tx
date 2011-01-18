@@ -15,9 +15,7 @@
  </div>
 
  <div id="navi">
-  <ol>
-   : block navi -> { }
-  </ol>
+  : block navi -> { }
  </div>
 
  <div id="main">

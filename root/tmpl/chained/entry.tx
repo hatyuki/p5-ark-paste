@@ -14,6 +14,7 @@
 : around javascript -> {
 :  if $entry.language != 'xatena' {
 :  my $script = "shBrush" ~ camelize($entry.language) ~ ".js"
+ <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'delete_diag.js') :>"></script>
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', 'shCore.js') :>"></script>
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', $script) :>"></script>
  <script type="text/javascript">SyntaxHighlighter.all( );</script>
@@ -21,10 +22,13 @@
 : }
 
 : around navi -> {
- <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
- <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
- <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist', $entry.created_at.ymd('')) :>"><: $entry.created_at.ymd('/') :></a></li>
- <li>&gt;&nbsp;<: $entry.title :></li>
+ <ol>
+  <li><a href="<: $c.uri_for( ) :>">とっぷ</a></li>
+  <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist') :>">ぜんぶみる</a></li>
+  <li>&gt;&nbsp;<a href="<: $c.uri_for('entrylist', $entry.created_at.ymd('')) :>"><: $entry.created_at.ymd('/') :></a></li>
+  <li>&gt;&nbsp;<: $entry.title :></li>
+ </ol>
+ <ul id="delete"><li><a href="#delete" onclick="delete_diag('<: $c.uri_for('delete', $entry.uuid) :>')">さくじょ</a></li></ul>
 : }
 
 : around body -> {
