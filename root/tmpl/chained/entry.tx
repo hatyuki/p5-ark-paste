@@ -18,9 +18,7 @@
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', $script) :>"></script>
  <script type="text/javascript">SyntaxHighlighter.all( );</script>
 :  }
-: else {
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'delete_diag.js') :>"></script>
-: }
 : }
 
 : around navi -> {
