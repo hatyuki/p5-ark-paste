@@ -14,11 +14,13 @@
 : around javascript -> {
 :  if $entry.language != 'xatena' {
 :  my $script = "shBrush" ~ camelize($entry.language) ~ ".js"
- <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'delete_diag.js') :>"></script>
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', 'shCore.js') :>"></script>
  <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'syntaxhighlighter', $script) :>"></script>
  <script type="text/javascript">SyntaxHighlighter.all( );</script>
 :  }
+: else {
+ <script type="text/javascript" src="<: $c.uri_for('static', 'js', 'delete_diag.js') :>"></script>
+: }
 : }
 
 : around navi -> {
