@@ -1,9 +1,7 @@
 #!/bin/sh
-HOME_DIR=/home/www-data
-
-cd $HOME_DIR/p5-ark-paste || exit 1
+cd $HOME/p5-ark-paste || exit 1
 
 exec 2>&1
-exec env - PATH=$HOME_DIR/local/perlbrew/perls/current/bin \
+exec env - PATH=$HOME/local/perlbrew/perls/current/bin \
     /usr/bin/setuidgid www-data \
-    starman --workers 1 --port 12121 --disable-keepalive app.psgi
+    starman --workers 5 --port 12121 --disable-keepalive app.psgi
