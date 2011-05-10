@@ -10,7 +10,9 @@ use local::lib "$base_dir/../extlib";
 
 
 use Ark::Paste::Models;
-models('Skinny')->do( q{
+my $skinny = models('Skinny');
+
+$skinny->do( q{
     CREATE TABLE entries (
         id         SERIAL PRIMARY KEY,
         title      TEXT,
@@ -21,3 +23,6 @@ models('Skinny')->do( q{
         updated_at TEXT
     )
 } );
+
+$skinny->do( q{ CREATE INDEX index_entries_on_language ON entries(language) } );
+$skinny->do( q{ CREATE INDEX index_entries_on_uuid ON entries(uuid) } );
