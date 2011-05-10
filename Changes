@@ -1,5 +1,9 @@
 Revision History
 
+0.006
+   2011-05-10
+        - ADD: PostgreSQL に INDEX を追加したよ
+
 0.005
    2011-01-18
         - ADD: とりあえず記事を削除できるようにした
